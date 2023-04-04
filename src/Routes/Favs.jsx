@@ -6,8 +6,8 @@ import { ContextGlobal } from "../Components/utils/global.context";
 
 const Favs = () => {
 
-  const {data} = useContext(ContextGlobal)
-  console.log("data", data)
+  const { currentContext } = useContext(ContextGlobal)
+  const { data } = currentContext
 
   return (
     <>

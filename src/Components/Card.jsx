@@ -6,23 +6,24 @@ import { ContextGlobal } from "./utils/global.context";
 
 const Card = ({ name, username, id }) => {
 
-  const { data, setData } = useContext(ContextGlobal)
+  const { currentContext, dispatchContextUpdate } = useContext(ContextGlobal)
+
+  const { data, theme } = currentContext
 
   const addFav = (dentistName, dentistUserName, dentistId)=>{
     // Aqui iria la logica para agregar la Card en el localStorage
 
     if (data.filter(dentist => dentist.id === dentistId).length > 0) {
-      setData((previousState) => previousState.filter(dentist => dentist.id !== dentistId))
+      dispatchContextUpdate({ type: "UPDATE_FAVORITES", payload: data.filter(dentist => dentist.id !== dentistId)})
       return
     }
-    setData((previousState) => 
-      previousState.length === 0 ?  [{name: dentistName, username: dentistUserName, id: dentistId}] : 
-      [...previousState, {name: dentistName, username: dentistUserName, id: dentistId}]
-    )
+    const dataToUpdate = data.length === 0 ?  [{name: dentistName, username: dentistUserName, id: dentistId}] : 
+    [...data, {name: dentistName, username: dentistUserName, id: dentistId}]
+    dispatchContextUpdate({ type: "UPDATE_FAVORITES", payload: dataToUpdate})
   }
 
   return (
-    <div className="card">
+    <div className={theme === "light" ? "card" : "card-dark"}>
         <Link to={`detail/${id}`}>
         {/* En cada card deberan mostrar en name - username y el id */}
 
