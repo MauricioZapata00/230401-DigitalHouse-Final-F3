@@ -20,8 +20,8 @@ function App() {
             <Route path="/favorites" element={<Favs />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
+          <Footer />
         </BrowserRouter>
-        <Footer />
       </ContextProvider>
     </div>
   );
