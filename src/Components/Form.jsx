@@ -78,18 +78,19 @@ const Form = () => {
           }}>Años: </label>
           <input id='Age' type="number" min={0} max={500} onChange={handleChangeAge} value={edad} />
         </div>
-        <div>
-          <input type="submit" value="Enviar" style={{
-            width: "15.5em",
-            marginTop: "3em",
-          }} />
-        </div>
         {seMuestraAlerta && <dialog open={seMuestraAlerta}>
           {mensajeDeAlerta}
           <button onClick={deleteAlert}>&#10005;</button>
         </dialog>}
         <div>
-          {seMuestraCard && <div>Gracias por dejar tu información</div>}
+          {seMuestraCard && <div>Gracias por dejar tu información {nombre}, te estaremos contactando próximamente.</div>}
+          <div>
+            <input type="submit" value="Enviar" style={{
+              width: "15.5em",
+              marginTop: "3em",
+            }} />
+            <div />
+          </div>
         </div>
       </form>
     </>

@@ -15,7 +15,7 @@ const Navbar = () => {
   }
 
   return (
-    <nav className={theme}>
+    <nav className={theme} data-testid='navbar-test-id'>
       {/* Aqui deberan agregar los liks correspondientes a las rutas definidas */}
       {/* Deberan implementar ademas la logica para cambiar de Theme con el button */}
       <Link to="/">
