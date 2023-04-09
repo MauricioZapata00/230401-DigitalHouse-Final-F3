@@ -62,25 +62,25 @@ const Form = () => {
             paddingRight: "2em",
             fontFamily: "sans-serif"
           }}>Nombre: </label>
-          <input id='Name' type="text" onChange={handleChangeName} value={nombre} />
+          <input id='Name' type="text" onChange={handleChangeName} value={nombre} data-testid='name-input-test-id'/>
         </div>
         <div>
           <label htmlFor="Email" style={{
             paddingRight: "2em",
             fontFamily: "sans-serif"
           }}>Correo: </label>
-          <input id='Email' type="text" onChange={handleChangeEmail} value={correo} />
+          <input id='Email' type="text" onChange={handleChangeEmail} value={correo} data-testid='email-input-test-id'/>
         </div>
         <div>
           <label htmlFor="Age" style={{
             paddingRight: "2em",
             fontFamily: "sans-serif"
           }}>Años: </label>
-          <input id='Age' type="number" min={0} max={500} onChange={handleChangeAge} value={edad} />
+          <input id='Age' type="number" min={0} max={500} onChange={handleChangeAge} value={edad} data-testid='age-input-test-id'/>
         </div>
-        {seMuestraAlerta && <dialog open={seMuestraAlerta}>
+        {seMuestraAlerta && <dialog open={seMuestraAlerta} data-testid='dialog-warning-test-id'>
           {mensajeDeAlerta}
-          <button onClick={deleteAlert}>&#10005;</button>
+          <button onClick={deleteAlert} data-testid='delete-alert-button-test-id'>&#10005;</button>
         </dialog>}
         <div>
           {seMuestraCard && <div>Gracias por dejar tu información {nombre}, te estaremos contactando próximamente.</div>}
